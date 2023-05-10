@@ -75,8 +75,8 @@ fn main(){
         println!("{}", *city);
     }
     
-    for color in colors.iter(){
-        println!("{:?} -> {}", *color, *color);
+    for color in colors.into_iter(){
+        println!("{:?} -> {} {:p}", color, color, &color);
     }
 }
 
