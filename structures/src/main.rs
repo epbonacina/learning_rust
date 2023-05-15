@@ -13,7 +13,7 @@ struct Person{
     age: u8,
 }
 
-// A unit `struct`
+// A unit `struct` 
 struct Unit;
 
 // A tuple `struct`
@@ -31,6 +31,24 @@ struct Rectangle{
     // right corners are in space.
     top_left: Point,
     bottom_right: Point,
+}
+
+
+impl Rectangle {
+    fn area(&self) -> f32 {
+        let Rectangle { 
+            top_left: Point { x: lx, y: ly },
+            bottom_right: Point { x: rx, y: ry }
+        } = self;
+        let width = rx - lx;
+        let height = ry - ly;
+        width * height
+    }
+
+    fn square(top_left: Point, edge: f32) -> Rectangle{
+        let bottom_right = Point { x: top_left.x + edge, y: top_left.y - edge };
+        Rectangle { top_left: top_left, bottom_right: bottom_right }
+    }
 }
 
 
@@ -60,11 +78,12 @@ fn main(){
     // Destructure the point using a `let` binding
     let Point { x: left_edge, y: top_edge } = point;
 
-    let _rectangle = Rectangle{
+    let rectangle = Rectangle{
         // `struct` instantiation is an expression too
         top_left: Point { x: left_edge, y: top_edge },
         bottom_right: bottom_right,
     };
+    println!("Rectangle are: {}", rectangle.area());
 
     // Instantiate a unit `struct`
     let _unit = Unit;
@@ -78,4 +97,9 @@ fn main(){
     // Destructure a tuple struct
     let Pair(integer, decimal) = pair;
     println!("Pair contains {:?} and {:?}", integer, decimal);
+
+    let edge = 3.5;
+    let top_left = Point { x: 3.4, y: 2.2 };
+    let square = Rectangle::square(top_left, edge);
+    println!("Square ( x: {}, y: {}, edge: {} )", square.top_left.x, square.top_left.y, edge);
 }
