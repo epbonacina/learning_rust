@@ -40,7 +40,7 @@ enum VeryVerboseEnumOfThingsToDoWithNumbers {
 }
 
 // Creates a type alias
-tpye Operations = VeryVerboseEnumOfThingsToDoWithNumbers;
+type Operations = VeryVerboseEnumOfThingsToDoWithNumbers;
 // fn main() {
 //  // We can refer to each variant via its alias, not its long and inconvenient
 //  // name.
