@@ -1,23 +1,36 @@
+mod doc_filter;
+mod doc_filter_impl;
 mod doc_type;
 mod doc_utils;
 mod document;
 
+use doc_filter::DocFilter;
+use doc_filter_impl::DType;
 use doc_type::DocType;
 use document::Document;
 
-fn make_documents() -> Vec<Document> {
-    vec![
-        Document{tipo: DocType::Decisao, descricao: String::from("Decisão")},
-        Document{tipo: DocType::AtoOrdinatorio, descricao: String::from("Ato Ordinatório")},
-        Document{tipo: DocType::Certidao, descricao: String::from("Certidão")},
-    ]
-}
-
 fn main() {
-    let documents = make_documents();
+    let f = DType {
+        doc_types: vec![DocType::Certidao, DocType::Decisao],
+    };
 
-    println!("Includes 'certidao'? {}", 
-             doc_utils::includes_doc_type(&documents, DocType::Certidao));
-    println!("Includes 'peticao inicial'? {}", 
-             doc_utils::includes_doc_type(&documents, DocType::PeticaoInicial));
+    let documents = vec![
+        Document {
+            tipo: DocType::Decisao,
+            descricao: String::from("Decisão"),
+        },
+        Document {
+            tipo: DocType::AtoOrdinatorio,
+            descricao: String::from("Ato Ordinatório"),
+        },
+        Document {
+            tipo: DocType::Certidao,
+            descricao: String::from("Certidão"),
+        },
+    ];
+
+    println!(
+        "Matches 'certidao' or 'decisao'? {}",
+        f.matches(&documents[0])
+    );
 }

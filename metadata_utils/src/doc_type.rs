@@ -12,8 +12,8 @@ pub enum DocType {
 lazy_static!{
     static ref TYPE_DESCRIPTIONS_MAP: HashMap<DocType, Vec<&'static str>> = vec![
         (DocType::AtoOrdinatorio, vec!["ato ordinatório"]),
-        (DocType::Certidao, vec!["certidao", "certidões", "certidão (outras)"]),
-        (DocType::Decisao, vec!["decisao", "decisoes"]),
+        (DocType::Certidao, vec!["certidão", "certidões", "certidão (outras)"]),
+        (DocType::Decisao, vec!["decisão", "decisões"]),
         (DocType::PeticaoInicial, vec!["petição inicial"]),
     ].into_iter().collect();
 }
