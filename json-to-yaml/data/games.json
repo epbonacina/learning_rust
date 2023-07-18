@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Assassin's Creed Odyssey",
+        "year": 2018,
+        "platforms": ["PS4", "Xbox One", "Windows", "Nintendo Switch"],
+        "developer": "Ubisoft Montreal"
+    },
+    {
+        "name": "Sea of Thieves",
+        "year": 2018,
+        "platforms": ["Windows", "Debian Linux", "Xbox One", "Xbox Series X/S"],
+        "developer": "Rare"
+    },
+    {
+        "name": "Deep Rock Galactic",
+        "year": 2020,
+        "platforms": ["Windows", "Debian Linux", "Xbox One", "Xbox Series X/S", "PS4", "PS5"],
+        "developer": "Coffee Stain Studios"
+    },
+    {
+        "name": "Red Dead Redemption 2",
+        "year": 2018,
+        "platforms": ["Windows", "Xbox One", "Xbox Series X/S", "PS4", "PS5"],
+        "developer": "Rockstar Games"
+    },
+    {
+        "name": "MudRunner",
+        "year": 2017,
+        "platforms": ["Windows", "Debian Linux", "Xbox One", "Xbox Series X/S"],
+        "developer": "Saber Interactive"
+    }
+]
