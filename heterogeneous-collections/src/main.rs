@@ -25,18 +25,22 @@ impl PrettyPrintable for Bar {
     }
 }
 
-// fn print_pretty_printables(printables: Vec<&dyn PrettyPrintable>) {
-fn print_pretty_printables(printables: &[&dyn PrettyPrintable]) {
+// fn print_pretty_printables(printables: &Vec<Box<dyn PrettyPrintable>>) {
+fn print_pretty_printables(printables: &[Box<dyn PrettyPrintable>]) {
     for printable in printables {
         println!("{}", printable.pretty_print());
     }
 }
 
+fn make_pretty_printables() -> Vec<Box<dyn PrettyPrintable>> {
+    let foo = Foo {name: "Fooled".to_string(), foo_id: 110};
+    let bar = Bar {name: "Barred".to_string(), bar_id: 220};
+
+    let printables: Vec<Box<dyn PrettyPrintable>> = vec![Box::new(foo), Box::new(bar)];
+    printables
+}
+
 fn main() {
-    let f = Foo {name: "Fooled".to_string(), foo_id: 110};
-    let b = Bar {name: "Barred".to_string(), bar_id: 220};
-
-    let printables: Vec<&dyn PrettyPrintable> = vec![&f, &b];
-
+    let printables = make_pretty_printables();
     print_pretty_printables(&printables);
 }
