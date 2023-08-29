@@ -7,7 +7,8 @@
 enum Number {
     Zero,
     One,
-    Two
+    Two,
+    Three,
 }
 
 // `enum` with explicit discriminator
